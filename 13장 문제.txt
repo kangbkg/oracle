@@ -1,12 +1,12 @@
-æ∆∑°¿« ¡∂∞«ø° ∏¬¥¬ ƒı∏ÆπÆ¿ª ¿€º∫«œΩ√ø¿.
-1. parent ≈◊¿Ã∫Ì ¿€º∫
-2. child ≈◊¿Ã∫Ì ¿€º∫
-3. insertΩ√ ø¿∑˘ πﬂª˝«— ∫Œ∫– ºˆ¡§
-4. æ∆∑°¿« selectπÆ øœº∫
-5. æ∆∑°¿« selectπÆ øœº∫
-6. µŒ ∞≥¿« ≈◊¿Ã∫Ì ªË¡¶
-7. ¥Ÿ¿Ω¿« ∞·∞˙∏¶ æÚ¿ª ºˆ ¿÷µµ∑œ  USER_CONSTRAINTSøÕ USER_CONS_COLUMNS∏¶ JOIN «ÿ ∫∏ººø‰.
-¿⁄Ωƒ≈◊¿Ã∫Ì ø‹∑°≈∞     ∫Œ∏≈◊¿Ã∫Ì  ∫Œ∏≈∞
+ÏïÑÎûòÏùò Ï°∞Í±¥Ïóê ÎßûÎäî ÏøºÎ¶¨Î¨∏ÏùÑ ÏûëÏÑ±ÌïòÏãúÏò§.
+1. parent ÌÖåÏù¥Î∏î ÏûëÏÑ±
+2. child ÌÖåÏù¥Î∏î ÏûëÏÑ±
+3. insertÏãú Ïò§Î•ò Î∞úÏÉùÌïú Î∂ÄÎ∂Ñ ÏàòÏ†ï
+4. ÏïÑÎûòÏùò selectÎ¨∏ ÏôÑÏÑ±
+5. ÏïÑÎûòÏùò selectÎ¨∏ ÏôÑÏÑ±
+6. Îëê Í∞úÏùò ÌÖåÏù¥Î∏î ÏÇ≠Ï†ú
+7. Îã§ÏùåÏùò Í≤∞Í≥ºÎ•º ÏñªÏùÑ Ïàò ÏûàÎèÑÎ°ù  USER_CONSTRAINTSÏôÄ USER_CONS_COLUMNSÎ•º JOIN Ìï¥ Î≥¥ÏÑ∏Ïöî.
+ÏûêÏãùÌÖåÏù¥Î∏î Ïô∏ÎûòÌÇ§     Î∂ÄÎ™®ÌÖåÏù¥Î∏î  Î∂ÄÎ™®ÌÇ§
 ----------   ---------- ----------      ----------
 EMP         DEPTNO     DEPT        DEPTNO
 EMP06      DEPTNO     DEPT        DEPTNO
@@ -20,7 +20,7 @@ CHILD3     C_ID          PARENT3    P_ID
 8 rows selected.
 	
 ================================================================= 
-¡∂∞«)
+Ï°∞Í±¥)
 SQL> desc parent;
   Name                                Null?    Type
  ----------------------------------- -------- ------------------------
@@ -33,17 +33,17 @@ SQL> desc child;
  Name                                Null?    Type
  ----------------------------------- -------- ------------------------
  ID                                           VARCHAR2(20)
- ADDRESS                                      VARCHAR2(20)  - ±‚∫ª∞™ 'º≠øÔΩ√'
- GENDER                                       VARCHAR2(2)   - ≥≤ ∂«¥¬ ø©
+ ADDRESS                                      VARCHAR2(20)  - Í∏∞Î≥∏Í∞í 'ÏÑúÏö∏Ïãú'
+ GENDER                                       VARCHAR2(2)   - ÎÇ® ÎòêÎäî Ïó¨
 
 SQL> select constraint_name, constraint_type, table_name, search_condition, R_CONSTRAINT_NAME
-     from (4. √§øˆ ≥÷¿∏Ω√ø¿)
+     from (4. Ï±ÑÏõå ÎÑ£ÏúºÏãúÏò§)
      where table_name in ('PARENT', 'CHILD');
 
 
 CONSTRAINT_NAME      CO TABLE_NAME SEARCH_CONDITION                R_CONSTRAINT_NAME
 -------------------- -- ---------- ------------------------------ ------------------------
-SYS_C008087          C  CHILD      gender in ('≥≤','ø©')
+SYS_C008087          C  CHILD      gender in ('ÎÇ®','Ïó¨')
 SYS_C008088          R  CHILD                                      SYS_C008086 
 SYS_C008083          C  PARENT     "PASSWORD" IS NOT NULL
 SYS_C008084          C  PARENT     "NAME" IS NOT NULL
@@ -52,7 +52,7 @@ SYS_C008086          P  PARENT
 
 
 SQL> select TABLE_NAME, CONSTRAINT_NAME,  COLUMN_NAME
-  2  from (5. √§øˆ ≥÷¿∏Ω√ø¿)
+  2  from (5. Ï±ÑÏõå ÎÑ£ÏúºÏãúÏò§)
   3  where table_name in ('PARENT', 'CHILD');
 
 TABLE_NAME CONSTRAINT_NAME      COLUMN_NAME
@@ -65,9 +65,9 @@ CHILD      SYS_C008087          GENDER
 CHILD      SYS_C008088          ID
 
 
-3. ø¿∑˘ ºˆ¡§
-insert into parent values('abcd','1234','»´±Êµø','88/7/23');
-insert into parent values('bbbb','5678','Ω≈ªÁ¿”¥Á','85/11/01');
+3. Ïò§Î•ò ÏàòÏ†ï
+insert into parent values('abcd','1234','ÌôçÍ∏∏Îèô','88/7/23');
+insert into parent values('bbbb','5678','Ïã†ÏÇ¨ÏûÑÎãπ','85/11/01');
                                         *
 ERROR at line 1:
 ORA-12899: value too large for column "SCOTT"."PARENT"."NAME" (actual: 12,
@@ -77,39 +77,39 @@ SQL> select * from parent;
 
 ID                                       PASSWORD                 NAME                     BIRTHDAY
 ---------------------------------------- ------------------------ ------------------------ --------
-abcd                                     1234                     »´±Êµø                   88/07/23
-bbbb                                     5678                     Ω≈ªÁ¿”¥Á                 85/11/01
-cccc                                     90as                     º∫√·«‚                   93/12/15
-dddd                                     efgy                     ∏Æƒ´ø§                   82/05/01
-ffff                                     wjdgml                   ±Ë«≥                     85/04/08
+abcd                                     1234                     ÌôçÍ∏∏Îèô                   88/07/23
+bbbb                                     5678                     Ïã†ÏÇ¨ÏûÑÎãπ                 85/11/01
+cccc                                     90as                     ÏÑ±Ï∂òÌñ•                   93/12/15
+dddd                                     efgy                     Î¶¨Ïπ¥Ïóò                   82/05/01
+ffff                                     wjdgml                   ÍπÄÌíç                     85/04/08
 
 
 
-SQL> insert into child values('abcd','∞ÊªÛ∫œµµ','≥™');
-insert into child values('abcd','∞ÊªÛ∫œµµ','≥™')
+SQL> insert into child values('abcd','Í≤ΩÏÉÅÎ∂ÅÎèÑ','ÎÇò');
+insert into child values('abcd','Í≤ΩÏÉÅÎ∂ÅÎèÑ','ÎÇò')
                                                *
 ERROR at line 1:
 ORA-12899: value too large for column "SCOTT"."CHILD"."GENDER" (actual: 3,
 maximum: 2)
 
 
-SQL> insert into child values('abcd','∞ÊªÛ∫œµµ','≥™');
-insert into child values('abcd','∞ÊªÛ∫œµµ','≥™')
+SQL> insert into child values('abcd','Í≤ΩÏÉÅÎ∂ÅÎèÑ','ÎÇò');
+insert into child values('abcd','Í≤ΩÏÉÅÎ∂ÅÎèÑ','ÎÇò')
 *
 ERROR at line 1:
-ORA-02290: check constraint (SCOTT.SYS_C007134) violated
+ORA-02290: check constraint (SCOTT.SYS_C008087) violated
 
 
 SQL> select * from child;
 
 ID                                       ADDRESS                                  GENDER
 ---------------------------------------- ---------------------------------------- ------
-abcd                                     ∞ÊªÛ∫œµµ                                 ≥≤
-cccc                                     ∆˛¥ÁΩ√                                   ø©
-dddd                                     ∫“∞°∏Ææ∆                                 ≥≤
-ffff                                        ¡¶¡÷Ω√                                   ≥≤
-bbbb                                     ±‚«∞Ω√                                   ø©
-ffff                                         ¡¶¡÷Ω√                                   ≥≤
+abcd                                     Í≤ΩÏÉÅÎ∂ÅÎèÑ                                 ÎÇ®
+cccc                                     ÌêÅÎãπÏãú                                   Ïó¨
+dddd                                     Î∂àÍ∞ÄÎ¶¨ÏïÑ                                 ÎÇ®
+ffff                                        Ï†úÏ£ºÏãú                                   ÎÇ®
+bbbb                                     Í∏∞ÌíàÏãú                                   Ïó¨
+ffff                                         Ï†úÏ£ºÏãú                                   ÎÇ®
 
 
 
